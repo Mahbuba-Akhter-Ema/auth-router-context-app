@@ -28,7 +28,14 @@ const Header = () => {
           SignUp
         </Link>
         {user?.email && <span>Welcome, {user.email}</span>}
-        <button onClick={handleSignOut} className="btn btn-sm mx-2">Sign Out</button>
+        {
+          user?.email ?
+          <button onClick={handleSignOut} className="btn btn-sm mx-2">Sign Out</button>
+          :
+          <Link to='/login'>
+            <button className="btn btn-sm mx-2">Log In</button>
+          </Link>
+        }
       </div>
     </div>
   );
